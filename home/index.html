@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Discord knockoff</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body onload='update(); clearStorage()'>
+      <!-- navbar -->
+      <div id='navBar'>
+          <input type='search' id='search' style='transition: all 0.5s' placeholder='Search rooms' oninput='change("search")'></input>
+          <span id='refresh' class='fa fa-repeat' onclick='refreshRooms()'></span>
+      </div>
+      
+      <div id='container'>
+        <!-- make room -->
+        <div id='makeRoomContainer'>  
+            <h style='padding: 0 0; margin: 0'>MAKE A ROOM</h>
+            <br>
+            
+            <div class='hide' id='makeRoom'>
+                <div id='exampleRoomWrapper'>
+                    <!-- room preview -->
+                    <div id='makeRoomExample' class='makeRoomBox' style='background-image: url("default_room.png"); background-repeat: no-repeat; background-size: 100% auto; background-color: #00688B'>
+                        
+                        <span id='previewLock' class='fa fa-5x' style='color: white; text-shadow: 0 0 5px black; position: absolute; transform: translate(-50%, 75%)'></span>
+
+                        <div class='makeRoomLabel' style=' background-color: #f9f9f9'>
+                            <h id='previewName' style='color: black; font-size: 15px'>‎</h>
+                            <p style='font-size: 10px'>69 users online</p>
+                        </div>
+                    </div>
+
+                    <!-- preview cover -->
+                    <div id='previewCover'></div>
+                </div>
+
+                <div class='drop' ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+                    <span onclick='clearUploadedImage()' class='fa fa-times-circle fa-3x' style='position: absolute; top: 0; right: 0; cursor: pointer;'></span>
+                    <span class='fa fa-download fa-4x'></span>
+                    <input id='customFileInput' accept="image/x-png,image/gif,image/jpeg" type='file' style='border: transparent; background: transparent; font-weight: 900; font-size: 0px; color: white; margin-top: 0; border-width: 0; margin-left: auto; margin-right: auto;'></input>
+                    <h2 style='font-size: 16px'>...or drag it here.</h2>
+                </div>
+                
+                <div id='makeRoomInput'>
+                    <input type='search' id='roomName' placeholder='enter room name...' oninput='change("name")'></input>
+                    <br>
+                    <input type='search' id='roomPassword' placeholder='enter password or leave blank...' oninput='change("password")'></input>
+                    <br>
+                    <button style='padding: 0.75em 1.5em; border-radius: 5px; background-color: white' onclick='makeRoom(); refreshRooms()'>submit</button>
+                </div>
+            </div>
+
+            <span id='makeRoomBtn' class='fa fa-caret-down fa-4x' onclick='toggleShowMakeRoom()' style='cursor: pointer'></span>
+        </div>
+
+        <!-- join rooms -->
+        <div id='roomsContainer'>
+            <div id='exampleRoom' class='roomBox' style='display: none; background-image: url(""); background-repeat: no-repeat; background-size: 250px auto;' onclick='joinRoom(this.id)'>
+                
+                <span class='fa fa-5x' style='color: white; text-shadow: 0 0 5px black; position: absolute; transform: translate(-50%, 75%)'></span>
+
+                <div class='roomLabel' style='user-select: none; background-color: #f9f9f9'>
+                    <h></h>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div id='noResults' style='display: none'> 
+            <h>No search results found for </h>
+        </div>
+      </div>
+
+    <script>
+        function changeName(){
+            var input = document.getElementById('roomName');
+            var name = document.getElementById('previewName');
+            if (input.value === '') {
+                name.innerText = '‎';
+            }
+            else {
+                name.innerText = input.value;
+            }
+        }
+        function changeLocked(){
+            var lock = document.getElementById('previewLock');
+            if (document.getElementById('roomPassword').value !== '') {
+                if (lock.classList.contains('fa-lock') === false) {
+                    lock.classList.add('fa-lock');
+                }
+            }
+            else {
+                if (lock.classList.contains('fa-lock')) {
+                    lock.classList.remove('fa-lock');
+                }
+            }
+        }
+        var timer;
+        function change(type){
+            if (type === 'name') {
+                clearTimeout(timer);
+                timer = setTimeout(changeName, 500);
+            }
+            if (type === 'password') {
+                clearTimeout(timer);
+                timer = setTimeout(changeLocked, 500);
+            }
+            if (type === 'search') {
+                clearTimeout(timer);
+                timer = setTimeout(search, 500);
+            }
+        }
+</script>
+    <script src="index.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>
