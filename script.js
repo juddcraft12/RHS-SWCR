@@ -25,7 +25,7 @@ function showMessage(message) {
 function check() {
     // if no password or room name
     if (sessionStorage.getItem("password") == null || sessionStorage.getItem('room') == null) {
-        window.location.href = 'https://rhs-swcr.zachariahjudd.repl.co/home/';
+        window.location.href = 'https://juddcraft12.github.io/RHS-SWCR/home/';
     }
 
     // enter name
