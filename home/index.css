@@ -1,0 +1,164 @@
+#roomsContainer {
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.roomBox {
+    width: 250px;
+    height: 350px;
+    cursor: pointer;
+    transition: all 0.3s;
+    float: left;
+    margin: 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    overflow: hidden;
+    position: relative;
+    border: 6px solid transparent;
+}
+.roomBox:hover {
+    transform: translateY(-3%);
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px 10px rgba(0,0,0,0.1);
+}
+
+#makeRoomContainer {
+    border: 2px solid transparent;
+    width: 80%;
+    margin: auto;
+    height: fit-content;
+    border-radius: 15px;
+    font-size: 0.7em;
+    background-color: #3c494f;
+    color: #f9f9f9;
+    margin-top: 10px;
+}
+
+#makeRoomInput {
+    height: fit-content;
+}
+#makeRoomInput * {
+    padding: 0.5em 1.5em;
+    margin: 2px;
+}
+#makeRoomContainer input {
+    width: 50%;
+}
+
+#makeRoom {
+    height: fit-content;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+.roomLabel {
+    position: absolute;
+    bottom: 0;
+    width: 250px;
+    max-height: 90px;
+    border-top: 2px solid black;
+}
+.roomLabel h {
+    font-size: 20px;
+}
+.roomLabel p {
+    font-size: 15px;
+}
+
+#exampleRoomWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.makeRoomBox {
+    border: 4px solid transparent;
+    width: 180px;
+    height: 290px;
+    transition: all 0.3s;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 0 0;
+    position: relative;
+}
+.makeRoomLabel {
+    border-top: 2px solid black;
+    max-height: 90px;
+    width: 180px;
+    position: absolute;
+    bottom: 0;
+    margin: 0 0;
+}
+#previewCover {
+    border: 4px;
+    position: absolute;
+    width: 180px;
+    height: 290px;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 0 0;
+    background-image: url('preview.png');
+    background-size: 90px auto;
+    background-repeat: repeat;
+    opacity: 0.4;
+}
+
+#container {
+    top: 80px;
+    height: 85%;
+}
+
+.drop {
+    display: flex;
+    flex-direction: column;
+    outline: 3px dashed;
+    outline-offset: -4px;
+    background-color: rgba(0, 153, 255, 0.5);
+    width: 60%;
+    min-width: 140px;
+    padding: 25px 25px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#customFileInput::before {
+    content: 'Choose a file';
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+}
+#customFileInput::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.noResultsSearch {
+    color: red;
+}
+
+#noResults {
+    position: absolute;
+    color: white;
+}
+
+@media only screen and (max-width: 780px) {
+    #roomsContainer {
+        width: 75%;
+    }
+
+    #makeRoomContainer input {
+        width: 80%;
+    }
+
+    #makeRoomInput {
+        float: left;
+        margin-top: 0
+    }
+}
