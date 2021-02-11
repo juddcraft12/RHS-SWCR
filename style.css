@@ -9,7 +9,7 @@ body {
     text-align: center;
     cursor: default;
     font-family: 'Montserrat', sans-serif;
-    background-image:url('/bg.gif');
+    background-image:url('https://github.com/juddcraft12/RHS-SWCR/blob/main/bg.gif');
 }
 body * {
     outline: none
