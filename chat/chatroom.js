@@ -280,7 +280,7 @@ function update() {
 }
 
 function goHome() {
-    window.location.href = 'https://rhs-swcr.zachariahjudd.repl.co/home';
+    window.location.href = 'https://juddcraft12.github.io/RHS-SWCR/home/';
 }
 
 function hideInfo() {
