@@ -15,7 +15,7 @@ function joinRoom(name) {
 function tryPasswordResponse(response) {
     var response = JSON.parse(this.responseText)['response'];
     if (response[0]) {
-        window.location.href = 'https://rhs-swcr.zachariahjudd.repl.co/chat';
+        window.location.href = 'https://juddcraft12.github.io/RHS-SWCR/chat';
     }
     else {
         alert(response[1]);
