@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <link href="chatroom.css" rel="stylesheet" type="text/css" />
+    <link href="chatbox.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body onload='update(); check(); makeEmojiBtns()'>
+        <!-- navbar -->
+        <div id='navBar'> 
+            <div id='homeBtn' style='user-select: none;' onclick='goHome()'><span class='fa fa-home fa-3x'/>BACK</div>
+        </div>
+        
+        <div id='container'>
+            <div class='flexContainerVertical'>
+                <div id='flexChat'>
+                    <!-- chat -->
+                    <div id='chatBox'>
+                        <div id='chatTopSpacer'></div>
+
+                        <h2 id='oldMessages' class='chatText'></h2>
+                        
+                        <h3 id='showOldMsgs' onclick='getOldChat()'>Show more</h3>
+
+                        <h3 id='today'>Today</h3>
+                        
+
+                        <h2 id='messages' class='chatText'></h2>
+                        
+                        <!-- on send message click make this dissapear -->
+                        <h3 onclick='hideInfo()' id='info' style=''><span class='fa fa-paper-plane'/> Type /commands to see the list of available commands.</h3>
+                    </div>
+                    
+                    <!-- users list -->
+                    <div id='usersBox'>
+                        <h2 id='user'></h2>
+                    </div>
+                </div>
+
+                <div class='flexContainer' style='margin-top: 1px'>
+
+                    <!-- message input -->
+                    <input type='search' id='message' style='flex: 10; border: 2px solid black' placeholder='Send message' onkeypress="clickPress(event)"></input>
+
+                    <!-- buttons -->
+                    <div id='chatBtns'>
+                        <!-- image button -->
+                        <div style='display: flex; flex-direction: column-reverse; width: fit-content; height: fit-content; position: relative; padding: 0 0; margin: 0 0;'>
+                            <span id='chatBtn2' class='fa fa-image fa-2x'></span>
+                            <input type='file' accept="image/x-png,image/gif,image/jpeg" style='cursor: pointer; width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden; position: absolute' />
+                        </div>
+                        <!-- image send display -->
+                        <div id='imgTriangle' class='hide'></div>
+                        <div id='chatShowImgContainer' class='hide'>
+                            <div id='chatShowImg' style='position: relative; padding: 0 0; width: 100%; height: 100%'>
+                                <span onclick='clearUploadedChatImage()' class='fa fa-times-circle' style='font-size: 25px;cursor: pointer; position: absolute; top: -10px; right: -10px; padding: 0 0; color: white;'></span>
+                            </div>
+                        </div>
+
+                        <!-- emoji button -->
+                        <span id='chatBtn' onclick='toggleEmojis()'' class='fa fa-smile-o fa-2x'></span>
+                    </div>
+                    <!-- emoji keyboard -->
+                    <div id='emojis' class='hide'>
+                        <a class='emojiBtn'>&#128512;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // on enter key click send button
+            function clickPress(event) {
+                if (event.keyCode == 13) {
+                    sendMessage();
+                }
+            }    
+        </script>
+    <script src="chatroom.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>
