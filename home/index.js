@@ -44,7 +44,7 @@ function makeRoom() {
 
         roomName.value = '';
         roomPassword.value = '';
-        document.getElementById('makeRoomExample').style.backgroundImage =  'url("default_room.png")';
+        document.getElementById('makeRoomExample').style.backgroundImage =  'url("https://github.com/juddcraft12/RHS-SWCR/blob/main/home/default_room.png")';
         document.getElementById('previewName').innerHTML = '';
         var lock = document.getElementById('previewLock');
         if (lock.classList.contains('fa-lock')) {
@@ -193,7 +193,7 @@ function getImage(rooms, room) {
             var type = request.getResponseHeader('content-type');
             if (type === 'application/json') {
                 try {
-                    rooms[room].style.backgroundImage = 'url("default_room.png")';
+                    rooms[room].style.backgroundImage = 'url("https://github.com/juddcraft12/RHS-SWCR/blob/main/home/default_room.png")';
                 }
                 catch(err) {
 
@@ -243,7 +243,7 @@ function dragOverHandler(ev) {
 
 function clearUploadedImage() {
     imageAsFile = '';
-    document.getElementById('makeRoomExample').style.backgroundImage =  'url("default_room.png")';
+    document.getElementById('makeRoomExample').style.backgroundImage =  'url("https://github.com/juddcraft12/RHS-SWCR/blob/main/home/default_room.png")';
 }
 
 //-------------- rooms ordering --------------//
